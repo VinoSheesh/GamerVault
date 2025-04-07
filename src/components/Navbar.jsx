@@ -1,7 +1,7 @@
 function Navbar(){
 
     return(
-      <header className="flex justify-between">
+      <header className="flex justify-between font-poppins">
         <h1>My Website</h1>
         <nav className="flex items-center justify-center w-full">
           <ul className="flex items-center justify-between gap-8">

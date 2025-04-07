@@ -8,6 +8,9 @@ export default {
     extend: {
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
+        bebas: ['Bebas Neue', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+        coiny: [ 'Coiny', 'system-ui'],
       },
     },
   },
