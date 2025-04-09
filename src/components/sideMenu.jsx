@@ -1,26 +1,43 @@
 import React, { useState } from "react";
 import NavListItem from "./NavListItem";
 import navListData from "../data/NavListData";
+import { motion, AnimatePresence } from "framer-motion";
 
-function SideMenu() {
-  const [navData, setNavData] = useState(navListData);
+function SideMenu({ active }) {
   return (
-    <div className="w-1/5 h-full p-7 border-1 border-solid rounded-2xl border-gray-500 flex flex-col duration-100 shadow-[0_3px_10px_rgb(0,0,0,0.2)] bg-zinc-800">
-      <a
-        href="#"
-        className="inline-flex relative items-center justif gap-4 text-white text-6xl font-bold uppercase"
-      >
-        <img src="../src/assets/Vino.png" alt="" className="w-14" />
-        <p className="font-bebas text-5xl flex items-center justify-center">
-          GamerVault
-        </p>
-      </a>
-      <ul className="w-full flex flex-col gap-2 mt-5">
-        {navData.map((item) => (
-          <NavListItem key={item._id} item={item} />
+    <motion.div
+      animate={{
+        width: active ? "80px" : "240px", 
+      }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      className="h-full p-4 bg-zinc-800 rounded-2xl 
+        shadow-[0_3px_10px_rgb(0,0,0,0.2)] flex flex-col gap-6 overflow-hidden"
+    >
+
+      <div className="flex items-center justify-center">
+        <img src="../src/assets/safe.png" alt="Logo" className="w-14 mx-auto" />
+      </div>
+
+      <AnimatePresence>
+        {!active && (
+          <motion.p
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -10 }}
+            transition={{ duration: 0.3 }}
+            className="text-white font-bebas text-5xl text-center"
+          >
+            GamerVault
+          </motion.p>
+        )}
+      </AnimatePresence>
+
+      <ul className="flex flex-col gap-2 w-full">
+        {navListData.map((item) => (
+          <NavListItem key={item._id} item={item} isCollapsed={active} />
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 }
 
