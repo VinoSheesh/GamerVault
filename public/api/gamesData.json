@@ -1,0 +1,107 @@
+[
+    {
+      "_id": 1,
+      "title": "League of Legends",
+      "description": "Multiplayer online battle arena paling populer di dunia dengan jutaan pemain aktif.",
+      "level": "Median",
+      "category": "MOBA",
+      "rating": 4.5,
+      "discount": 0.5,
+      "price": 79.0,
+      "img": "./assets/games/League.jpg",
+      "trailer": "https://www.youtube.com/embed/vzHrjOMfHPY",
+      "active": true
+    },
+    {
+      "_id": 2,
+      "title": "Mario Kart 8 Deluxe",
+      "description": "Game balapan yang penuh aksi dan kejutan, cocok untuk semua umur.",
+      "level": "Entry",
+      "category": "Racing",
+      "rating": 4.7,
+      "discount": 0.3,
+      "price": 52.56,
+      "img": "./assets/games/Mario.jpg",
+      "trailer": "https://www.youtube.com/embed/tKRN2PyRxRE",
+      "active": false
+    },
+    {
+      "_id": 3,
+      "title": "The Legend of Zelda: Breath of the Wild",
+      "description": "Petualangan epik di dunia terbuka dengan grafis yang memukau dan gameplay inovatif.",
+      "level": "Advanced",
+      "category": "Adventure",
+      "rating": 5,
+      "discount": 0.2,
+      "price": 69.99,
+      "img": "./assets/games/Zelda.jpg",
+      "trailer": "https://www.youtube.com/embed/zw47_q9wbBE",
+      "active": false
+    },
+    {
+      "_id": 4,
+      "title": "Fortnite",
+      "description": "Battle royale paling populer dengan berbagai mode permainan dan skin menarik.",
+      "level": "Median",
+      "category": "Battle Royale",
+      "rating": 4.3,
+      "discount": 0.5,
+      "price": 0,
+      "img": "./assets/games/Fortnite.jpg",
+      "trailer": "https://www.youtube.com/embed/2gUtfBmw86Y",
+      "active": false
+    },
+    {
+      "_id": 5,
+      "title": "Call of Duty: Modern Warfare II",
+      "description": "Game FPS terbaru dari seri Call of Duty dengan visual dan gameplay yang sangat realistis.",
+      "level": "Advanced",
+      "category": "Shooter",
+      "rating": 4.6,
+      "discount": 0.25,
+      "price": 89.99,
+      "img": "./assets/games/Callof.jpg",
+      "trailer": "https://www.youtube.com/embed/r72GP1PIZa0",
+      "active": false
+    },
+    {
+      "_id": 6,
+      "title": "Minecraft",
+      "description": "Game sandbox legendaris yang membebaskan kreativitas tanpa batas.",
+      "level": "All Levels",
+      "category": "Sandbox",
+      "rating": 4.9,
+      "discount": 0.1,
+      "price": 29.99,
+      "img": "./assets/games/Minecraft.jpg",
+      "trailer": "https://www.youtube.com/embed/MmB9b5njVbA",
+      "active": false
+    },
+    {
+      "_id": 7,
+      "title": "GTA V",
+      "description": "Game open-world dengan cerita yang dalam dan aksi yang intens.",
+      "level": "Advanced",
+      "category": "Action",
+      "rating": 4.8,
+      "discount": 0.6,
+      "price": 39.99,
+      "img": "./assets/games/Gta.jpg",
+      "trailer": "https://www.youtube.com/embed/QkkoHAzjnUs",
+      "active": false
+    },
+    {
+      "_id": 8,
+      "title": "Elden Ring",
+      "description": "Game action RPG dari FromSoftware dengan dunia luas dan tantangan berat.",
+      "level": "Hardcore",
+      "category": "RPG",
+      "rating": 4.9,
+      "discount": 0.15,
+      "price": 59.99,
+      "img": "./assets/games/Elden.jpg",
+      "trailer": "https://www.youtube.com/embed/E3Huy2cdih0",
+      "active": false
+    }
+  ]
+  

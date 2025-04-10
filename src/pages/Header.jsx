@@ -2,7 +2,7 @@ import React from "react";
 import userImg from "../assets/Profile.png";
 function Header({toggleActive}) {
   return (
-    <header className="absolute top-0 left-0 w-full flex justify-between items-center p-5 z-50 bg-transparent font-poppins  ">
+    <header className="absolute top-0 left-0 w-full flex justify-between items-center p-5 z-30 bg-transparent font-poppins  ">
       <a href="#" className="text-2xl text-white ml-3" onClick={toggleActive}>
         <i className="bi bi-sliders"></i>
       </a>
