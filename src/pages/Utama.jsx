@@ -13,7 +13,7 @@ function Utama() {
   };
 
   const fetchData = () => {
-    fetch("http://localhost:5174/api/gamesData.json")
+    fetch("http://localhost:5173/api/gamesData.json")
       .then((res) => res.json())
       .then((data) => {
         setGames(data);

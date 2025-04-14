@@ -11,6 +11,7 @@ export default {
         bebas: ['Bebas Neue', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],
         coiny: [ 'Coiny', 'system-ui'],
+        bauhaus: ['Bauhaus V1' ],
       },
     },
   },
