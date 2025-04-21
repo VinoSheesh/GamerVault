@@ -80,18 +80,17 @@ function GameSwiper({ games }) {
         {games.map((game) => (
           <SwiperSlide key={game._id} className="!w-[550px] !h-[320px] group">
             <div className="relative w-full h-full p-7 overflow-hidden font-poppins group-hover:bg-black/40 transition-all duration-300 rounded-[20px]">
-              {/* Game Image */}
+
               <img
                 src={game.img}
                 alt={game.title}
                 className="absolute left-0 top-0 w-full h-full object-cover object-center !rounded-[20px] transition-all duration-300 group-hover:filter group-hover:blur-sm"
               />
 
-              {/* Game Info (hidden by default) */}
               <div
                 className="relative z-10 text-white opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-300 text-center top-7"
               >
-                <h2 className="text-5xl font-semibold mb-4 font-bauhaus font-bold">{game.title}</h2>
+                <h2 className="text-5xl font-semibold mb-4 font-Bauhaus">{game.title}</h2>
                 <p className="text-lg mb-6">{game.description}</p>
                 <div className="flex justify-center gap-6">
                   <a
@@ -110,7 +109,6 @@ function GameSwiper({ games }) {
                 </div>
               </div>
 
-              {/* Video Trailer Overlay */}
               {selectedGame && selectedGame._id === game._id && (
                 <div className="absolute top-0 left-0 w-full h-full z-[9990] bg-black rounded-[20px] overflow-hidden">
                   <iframe
@@ -126,7 +124,7 @@ function GameSwiper({ games }) {
           </SwiperSlide>
         ))}
       </Swiper>
-      {/* Tombol X di bawah slider */}
+
       {selectedGame && (
         <div className="w-full flex justify-center mt-4">
           <button
