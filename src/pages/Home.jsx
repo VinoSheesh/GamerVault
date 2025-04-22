@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import GameSwiper from "../components/GameSwiper.jsx";
+import GameCard from "../components/GameCard.jsx";
 
 function Home({ games }) {
   const [isActive, setIsActive] = useState(false);
@@ -7,7 +8,7 @@ function Home({ games }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsActive(true);
-    }, 500); 
+    }, 500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -21,6 +22,21 @@ function Home({ games }) {
       <div className="container-fluid">
         <div className="row">
           <GameSwiper games={games} />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="flex justify-start">
+            <h2 className="font-bebas text-5xl text-white">Hot Sale!</h2>
+          </div>
+
+          <div className="flex items-center justify-end text-white font-montserrat cursor-pointer">
+            <a>View More Games</a>
+            <i class="bi bi-arrow-right-short"></i>
+          </div>
+        </div>
+
+        <div className="flex">
+          <GameCard></GameCard>
         </div>
       </div>
     </section>

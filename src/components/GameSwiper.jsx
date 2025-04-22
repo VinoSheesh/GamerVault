@@ -79,32 +79,45 @@ function GameSwiper({ games }) {
       >
         {games.map((game) => (
           <SwiperSlide key={game._id} className="!w-[550px] !h-[320px] group">
-            <div className="relative w-full h-full p-7 overflow-hidden font-poppins group-hover:bg-black/40 transition-all duration-300 rounded-[20px]">
-
+            <div className="relative flex flex-col w-full h-full p-7 overflow-hidden group-hover:bg-black/40 transition-all duration-300 rounded-[20px]">
               <img
                 src={game.img}
                 alt={game.title}
-                className="absolute left-0 top-0 w-full h-full object-cover object-center !rounded-[20px] transition-all duration-300 group-hover:filter group-hover:blur-sm"
+                className="absolute left-0 top-0 w-full h-full object-cover object-center !rounded-[20px] transition-all duration-300 group-hover:filter group-hover:blur-md"
               />
 
-              <div
-                className="relative z-10 text-white opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-300 text-center top-7"
-              >
-                <h2 className="text-5xl font-semibold mb-4 font-Bauhaus">{game.title}</h2>
-                <p className="text-lg mb-6">{game.description}</p>
-                <div className="flex justify-center gap-6">
+              <div className="relative z-10 text-white opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-300 text-center flex flex-col justify-end h-full text-left gap-4">
+                <div>
+                  <h2
+                    className="text-6xl font-semibold font-bauhaus line-clamp-2 mb-2 text-left"
+                    style={{
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                    }}
+                  >
+                    {game.title}
+                  </h2>
+                  <p className="text-lg line-clamp-3 text-left">
+                    {game.description}
+                  </p>
+                </div>
+
+                <div className="flex justify-start gap-4 font-poppins">
                   <a
                     href="#"
-                    className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-lg transition duration-300"
+                    className="px-6 py-3 flex justify-center items-center bg-white hover:bg-gray-200 text-black rounded-md text-lg transition duration-300"
                   >
-                    Order Now
+                    Purchase Now
                   </a>
+
                   <button
                     onClick={() => handleTrailerClick(game)}
-                    className="px-6 py-3 bg-white/30 hover:bg-white/50 text-white rounded-md text-lg transition duration-300"
+                    className="text-white rounded-md text-lg transition duration-300"
                   >
-                    <i className="bi bi-play-fill mr-1" />
-                    Watch Trailer
+                    <i className="bi bi-play-circle-fill text-6xl"></i>
                   </button>
                 </div>
               </div>

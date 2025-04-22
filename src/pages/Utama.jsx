@@ -26,12 +26,11 @@ function Utama() {
   }, []);
 
   return (
-    <div className="absolute top-0 left-0 right-0 bottom-0 p-8 border-black flex items-center gap-8 overflow-hidden bg-black">
+    <div className="absolute top-0 left-0 right-0 bottom-0 border-black flex items-center gap-4 overflow-hidden bg-zinc-950">
       <SideMenu active={active} />
 
       <motion.div
-        className="relative h-full rounded-2xl border border-[rgba(0,0,0,0.1)] bg-zinc-800 
-          shadow-[-5px_-5px_15px_rgba(255,255,255,0.1),5px_5px_15px_rgba(0,0,0,0.35)]"
+        className="relative h-full rounded-l-2xl bg-black"
         animate={{
           width: active ? "calc(100% - 80px)" : "calc(100% - 240px)",
         }}
@@ -40,7 +39,7 @@ function Utama() {
           ease: "easeInOut",
         }}
       >
-        <Header toggleActive={handleToggleActive} />
+        <Header toggleActive={handleToggleActive}  active={active} />
         <div className="container-fliud">
           <Home games={games} />
         </div>

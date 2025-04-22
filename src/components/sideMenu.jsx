@@ -10,8 +10,8 @@ function SideMenu({ active }) {
         width: active ? "90px" : "250px",
       }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="h-full p-4 bg-zinc-800 rounded-2xl 
-        shadow-[0_3px_10px_rgb(0,0,0,0.2)] flex flex-col gap-4 overflow-hidden"
+      className="h-full p-4 rounded-r-2xl border-[rgba(0,0,0,0.1)]
+          shadow-[ -5px_-5px_15px_rgba(255,255,255,0.1),5px_5px_15px_rgba(0,0,0,0.35)]  bg-black flex flex-col gap-4 overflow-hidden"
     >
       <AnimatePresence>
         <div className="flex items-center justify-center gap-[5px]">
