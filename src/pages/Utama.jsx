@@ -26,7 +26,7 @@ function Utama() {
   }, []);
 
   return (
-    <div className="absolute top-0 left-0 right-0 bottom-0 border-black flex items-center gap-4 overflow-hidden bg-zinc-950">
+    <div className="absolute top-0 left-0 right-0 bottom-0 border-black flex items-center gap-4 overflow-hidden bg-zinc-900">
       <SideMenu active={active} />
 
       <motion.div
