@@ -1,5 +1,17 @@
 import { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
+import { 
+  ChevronLeft, 
+  ChevronRight, 
+  Heart, 
+  Star, 
+  Swords, 
+  Gamepad2, 
+  Wand2, 
+  Mountain, 
+  Target, 
+  Compass, 
+  Map 
+} from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -12,6 +24,17 @@ export default function GameCard() {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
   
+  // Genre icons mapping
+  const genreIcons = {
+    "Action RPG": <Swords size={12} />,
+    "Combat Simulation": <Gamepad2 size={12} />,
+    "Fantasy RPG": <Wand2 size={12} />,
+    "Action Adventure": <Mountain size={12} />,
+    "Tactical Shooter": <Target size={12} />,
+    "Open World FPS": <Compass size={12} />,
+    "Adventure": <Map size={12} />
+  };
+  
   const games = [
     {
       id: 1,
@@ -21,6 +44,8 @@ export default function GameCard() {
       image: "./assets/games/AssasinsShadow.jpg",
       isNew: true,
       discount: null,
+      rating: 4.5,
+      genre: "Action RPG"
     },
     {
       id: 2,
@@ -30,6 +55,8 @@ export default function GameCard() {
       price: 19.99,
       image: "./assets/games/WarThunder.jpg",
       discount: 50,
+      rating: 4.2,
+      genre: "Combat Simulation"
     },
     {
       id: 3,
@@ -39,6 +66,8 @@ export default function GameCard() {
       price: 24.99,
       image: "./assets/games/Hogwarts.jpg",
       discount: 50,
+      rating: 4.7,
+      genre: "Fantasy RPG"
     },
     {
       id: 4,
@@ -47,6 +76,8 @@ export default function GameCard() {
       price: 69.99,
       image: "./assets/games/Wukong.jpg",
       discount: null,
+      rating: 4.9,
+      genre: "Action Adventure"
     },
     {
       id: 5,
@@ -55,6 +86,8 @@ export default function GameCard() {
       price: 19.99,
       image: "./assets/games/RSS6.jpg",
       discount: null,
+      rating: 4.3,
+      genre: "Tactical Shooter"
     },
     {
       id: 6,
@@ -63,6 +96,8 @@ export default function GameCard() {
       price: 59.99,
       image: "./assets/games/FarCry6.jpg",
       discount: null,
+      rating: 4.0,
+      genre: "Open World FPS"
     },
     {
       id: 7,
@@ -71,6 +106,8 @@ export default function GameCard() {
       price: 49.99,
       image: "/api/placeholder/300/400",
       discount: null,
+      rating: 3.8,
+      genre: "Action Adventure"
     },
   ];
 
@@ -88,6 +125,35 @@ export default function GameCard() {
         return [...prev, gameId];
       }
     });
+  };
+
+  // Improved function to render rating stars
+  const renderRatingStars = (rating) => {
+    // Create an array of 5 stars
+    return (
+      <div className="flex items-center gap-0.5">
+        {[1, 2, 3, 4, 5].map((star) => {
+          if (star <= rating) {
+            // Full star
+            return <Star key={star} size={14} fill="gold" color="gold" />;
+          } else if (star - 0.5 <= rating && star > rating) {
+            // Half star
+            return (
+              <div key={star} className="relative">
+                <Star size={14} color="gold" />
+                <div className="absolute top-0 left-0 overflow-hidden" style={{ width: '50%' }}>
+                  <Star size={14} fill="gold" color="gold" />
+                </div>
+              </div>
+            );
+          } else {
+            // Empty star
+            return <Star key={star} size={14} color="gold" />;
+          }
+        })}
+        <span className="ml-1 text-xs text-gray-300 font-medium">{rating.toFixed(1)}</span>
+      </div>
+    );
   };
 
   return (
@@ -147,12 +213,11 @@ export default function GameCard() {
                         onMouseEnter={() => setHoveredCard(game.id)}
                         onMouseLeave={() => setHoveredCard(null)}
                       >
-                        {/* Cover art container with fixed aspect ratio 3:4 */}
                         <div className="relative w-full pb-[133%]">
                           <img
                             src={game.image}
                             alt={game.title}
-                            className="absolute inset-0 w-full h-full object-cover object-center"
+                            className="absolute inset-0 w-full h-full object-cover object-center hover:scale-[1.05] transition duration-50"
                           />
                           {game.isNew && (
                             <div className="absolute top-3 left-3 bg-white text-black text-xs font-bold px-2 py-1 rounded">
@@ -180,10 +245,23 @@ export default function GameCard() {
                         </div>
 
                         <div className="p-3">
-                          <h3 className="text-sm lg:text-base font-bold font-poppins truncate">{game.title}</h3>
-                          <p className="text-gray-400 font-montserrat text-xs lg:text-sm mb-2">{game.edition}</p>
+                          <h3 className="text-sm lg:text-base xl:text-lg font-bold font-poppins truncate">{game.title}</h3>
+                          <p className="text-gray-400 font-montserrat text-xs lg:text-sm">{game.edition}</p>
+                          
+                          {/* Game Genre with icon */}
+                          <div className="mt-1 mb-4">
+                            <span className="inline-flex items-center gap-1 bg-gray-800 text-gray-300 text-xs px-2 py-0.5 rounded rounded-xl">
+                              {genreIcons[game.genre]}
+                              {game.genre}
+                            </span>
+                          </div>
+                          
+                          {/* Rating stars */}
+                          <div className="mb-2">
+                            {renderRatingStars(game.rating)}
+                          </div>
 
-                          <div className="flex items-center flex-wrap">
+                          <div className="flex items-center flex-wrap mt-2">
                             {game.discount ? (
                               <>
                                 <span className="bg-red-600 text-white px-1 py-0.5 text-xs font-bold mr-1">
@@ -209,8 +287,7 @@ export default function GameCard() {
                 </SwiperSlide>
               ))}
             </Swiper>
-            {/* Custom pagination container */}
-            <div className="swiper-pagination mt-4 flex justify-center"></div>
+           
           </div>
         </div>
       </div>

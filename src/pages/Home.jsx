@@ -15,7 +15,7 @@ function Home({ games }) {
   return (
     <section
       id="home"
-      className={`home absolute w-full px-[30px] bottom-0 top-24 opacity-0 overflow-hidden transition-all duration-1000 z-[1] scrollbar-none ${
+      className={`home absolute w-full px-[30px] bottom-0 top-28 opacity-0 overflow-hidden transition-all duration-1000 z-[1] scrollbar-none ${
         isActive ? "translate-y opacity-100" : "translate-y-full"
       }`}
     >

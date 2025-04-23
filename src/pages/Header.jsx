@@ -4,7 +4,7 @@ import { Search } from "lucide-react";
 import userImg from "../assets/Profile.png";
 function Header({ toggleActive, active }) {
   return (
-    <header className="absolute top-0 left-0 w-full flex justify-between items-center p-5 z-30 bg-transparent font-poppins  ">
+    <header className="absolute fixed top-0 left-0 w-full flex justify-between items-center p-5 z-30 bg-transparent font-poppins  ">
       <a href="#" onClick={toggleActive} className="text-3xl text-white">
         <div
           className={`transform transition-transform duration-300 ${
