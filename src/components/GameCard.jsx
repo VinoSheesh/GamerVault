@@ -104,7 +104,7 @@ export default function GameCard() {
       title: "Watch Dogs: Legion",
       edition: "Standard Edition",
       price: 49.99,
-      image: "/api/placeholder/300/400",
+      image: "/assets/games/wdlegion.jpg",
       discount: null,
       rating: 3.8,
       genre: "Action Adventure"

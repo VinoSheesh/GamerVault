@@ -4,6 +4,17 @@ import navListData from "../data/NavListData";
 import { motion, AnimatePresence } from "framer-motion";
 
 function SideMenu({ active }) {
+
+  const handleNavOnClick = id => {
+    console.log(id);
+    const newNavData = navData.map((nav) => {
+      nav.active = false;
+      if (nav._id === id) nav.active = true;
+      return nav;
+    });
+    setNavData(newNavData);
+  };
+
   return (
     <motion.div
       animate={{
@@ -36,7 +47,12 @@ function SideMenu({ active }) {
 
       <ul className="flex flex-col gap-2 w-full">
         {navListData.map((item) => (
-          <NavListItem key={item._id} item={item} isCollapsed={active} />
+          <NavListItem
+            key={item._id}
+            item={item}
+            isCollapsed={active}
+            navOnClick={handleNavOnClick}
+          />
         ))}
       </ul>
     </motion.div>
