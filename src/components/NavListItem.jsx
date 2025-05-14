@@ -12,7 +12,7 @@ function NavListItem({ item, isCollapsed, navOnClick}) {
           hover:bg-zinc-600 transition-colors duration-300
            ${item.active ? "bg-zinc-700 text-white" : "text-white hover:bg-zinc-600"}
         `}
-        onClick={() => navOnClick(item._id)}
+        onClick={() => navOnClick(item._id, item.target)}
       >
         <motion.i
           className={`bi ${item.icon} ${isCollapsed ? "text-xl" : "text-2xl"}`}

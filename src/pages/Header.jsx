@@ -15,20 +15,6 @@ function Header({ toggleActive, active }) {
         </div>
       </a>
 
-      <div className="max-w-md w-full bg-zinc-800 rounded-lg ml-64">
-        <div className="relative flex items-center w-full h-10 rounded-lg focus-within:shadow-lg bg-zinc-800 overflow-hidden">
-          <div className="grid place-items-center h-full w-12 text-gray-400">
-            <Search className="h-5 w-5" />
-          </div>
-          <input
-            className="peer h-full w-full outline-none text-sm text-gray-300 pr-2 bg-zinc-800 placeholder-gray-400"
-            type="text"
-            id="search"
-            placeholder="Search store"
-          />
-        </div>
-      </div>
-
       <div className="inline-flex items-center gap-5">
         <div className="relative text-white text-[1.5rem] w-[50px] h-[50px] rounded-[10px] shadow-[ -5px_-5px_15px_rgba(255,255,255,0.1),5px_5px_15px_rgba(0,0,0,0.35)] flex items-center justify-center no-underline hover:bg-zinc-400 duration-500 rounded-full">
           <a href="#">

@@ -3,16 +3,17 @@ import NavListItem from "./NavListItem";
 import navListData from "../data/NavListData";
 import { motion, AnimatePresence } from "framer-motion";
 
-function SideMenu({ active }) {
+function SideMenu({ active, sectionActive }) {
+  const [navData, setNavData] = useState(navListData);
 
-  const handleNavOnClick = id => {
-    console.log(id);
+  const handleNavOnClick = (id, target) => {
     const newNavData = navData.map((nav) => {
       nav.active = false;
       if (nav._id === id) nav.active = true;
       return nav;
     });
     setNavData(newNavData);
+    sectionActive(target);
   };
 
   return (
@@ -21,11 +22,10 @@ function SideMenu({ active }) {
         width: active ? "90px" : "250px",
       }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="h-full p-4 rounded-r-2xl border-[rgba(0,0,0,0.1)]
-          shadow-[ -5px_-5px_15px_rgba(255,255,255,0.1),5px_5px_15px_rgba(0,0,0,0.35)]  bg-black flex flex-col gap-4 overflow-hidden"
+      className="h-full bg-black flex flex-col gap-4 overflow-hidden"
     >
       <AnimatePresence>
-        <div className="flex items-center justify-center gap-[5px]">
+        <div className="flex items-center justify-center gap-[5px] p-4">
           <img
             src="../src/assets/GamerVaultLogo.png"
             alt="Logo"
@@ -45,8 +45,8 @@ function SideMenu({ active }) {
         </div>
       </AnimatePresence>
 
-      <ul className="flex flex-col gap-2 w-full">
-        {navListData.map((item) => (
+      <ul className="flex flex-col gap-2 w-full px-4">
+        {navData.map((item) => (
           <NavListItem
             key={item._id}
             item={item}
