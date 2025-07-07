@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { Toaster } from "react-hot-toast"
-import SideMenu from "../components/SideMenu"
+import SideMenu from "../components/sideMenu"
 import Header from "../pages/Header"
 import Home from "./Home"
 import Categories from "./Categories"
