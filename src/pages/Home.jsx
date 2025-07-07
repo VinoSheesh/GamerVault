@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import GameCard from "../components/GameCard";
 import GameSwiper from "../components/GameSwiper.jsx";
 
-function Home({ games, reference, isActive }) {
+function Home({ games, reference, isActive, onAddToCart }) {
   const [mounted, setMounted] = useState(false);
   const [hoveredCard, setHoveredCard] = useState(null);
   const [likedGames, setLikedGames] = useState([]);
@@ -22,7 +22,6 @@ function Home({ games, reference, isActive }) {
     return () => clearTimeout(timer);
   }, []);
 
-  // Group games into chunks of 6 for sliding
   const gameSlides = [];
   if (games && games.length > 0) {
     for (let i = 0; i < games.length; i += 5) {
@@ -44,7 +43,7 @@ function Home({ games, reference, isActive }) {
     <section
       id="home"
       ref={reference}
-      className={`home absolute w-full px-[30px] bottom-0 top-28 opacity-0 overflow-hidden transition-all duration-1000 z-[1] scrollbar-none ${
+      className={`home absolute w-full overflow-y-auto px-[30px] bottom-0 top-28 opacity-0 transition-all duration-1000 z-[1] ${
         isActive && mounted ? "translate-y opacity-100" : "translate-y-full opacity-0"
       }`}
     >
@@ -110,6 +109,7 @@ function Home({ games, reference, isActive }) {
                             onHover={setHoveredCard}
                             onLikeToggle={toggleLike}
                             likedGames={likedGames}
+                            onAddToCart={onAddToCart}
                           />
                         ))}
                       </div>

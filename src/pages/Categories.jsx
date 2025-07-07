@@ -55,9 +55,9 @@ function Categories({ games, reference }) {
   };
 
   return (
-    <section id="categories" className="text-2xl text-white" ref={reference}>
-      <div className="container-fluid mt-2">
-        <div className="flex justify-between items-center flex-wrap gap-4">
+    <section id="categories" className="text-2xl text-white h-screen flex flex-col" ref={reference}>
+      <div className="container-fluid mt-2 flex flex-col h-full">
+        <div className="flex justify-between items-center flex-wrap gap-4 mb-4">
           <ul className="filters flex flex-wrap list-none gap-[12px] p-0">
             {filters.map((filter) => (
               <li
@@ -83,23 +83,25 @@ function Categories({ games, reference }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-6">
-          {data.length > 0 ? (
-            data.map((game) => (
-              <GameCard
-                key={game._id}
-                game={game}
-                hoveredCardId={hoveredCard}
-                onHover={setHoveredCard}
-                onLikeToggle={toggleLike}
-                likedGames={likedGames}
-              />
-            ))
-          ) : (
-            <div className="col-span-full text-center py-10 text-gray-400">
-              No games found for this category.
-            </div>
-          )}
+        <div className="h-[calc(100%-80px)] overflow-y-auto hide-scrollbar">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {data.length > 0 ? (
+              data.map((game) => (
+                <GameCard
+                  key={game._id}
+                  game={game}
+                  hoveredCardId={hoveredCard}
+                  onHover={setHoveredCard}
+                  onLikeToggle={toggleLike}
+                  likedGames={likedGames}
+                />
+              ))
+            ) : (
+              <div className="col-span-full text-center py-10 text-gray-400">
+                No games found for this category.
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>

@@ -2,7 +2,7 @@
 import { Heart, Star, Swords, Gamepad2, Wand2, Mountain, Target, Compass, Map, ShoppingCart } from "lucide-react"
 import { toast } from "react-hot-toast"
 
-export default function GameCard({ game, hoveredCardId, onHover, onLikeToggle, likedGames, onAddToCart }) {
+export default function GameCard({ game, hoveredCardId, onHover, onLikeToggle, likedGames, onAddToCart, onGameClick }) {
   // Genre icons mapping
   const genreIcons = {
     "Action RPG": <Swords size={12} />,
@@ -86,11 +86,18 @@ export default function GameCard({ game, hoveredCardId, onHover, onLikeToggle, l
     }, 300)
   }
 
+  const handleCardClick = () => {
+    if (onGameClick) {
+      onGameClick(game)
+    }
+  }
+
   return (
     <div
-      className="bg-zinc-900 rounded-lg overflow-hidden w-56"
+      className="bg-zinc-900 rounded-lg overflow-hidden w-56 cursor-pointer hover:transform hover:scale-105 transition-all duration-300"
       onMouseEnter={() => onHover(game._id)}
       onMouseLeave={() => onHover(null)}
+      onClick={handleCardClick}
     >
       <div className="relative w-full pb-[125%]">
         <img
@@ -119,6 +126,7 @@ export default function GameCard({ game, hoveredCardId, onHover, onLikeToggle, l
           }`}
           onClick={(e) => {
             e.preventDefault()
+            e.stopPropagation()
             onLikeToggle(game._id)
           }}
         >
