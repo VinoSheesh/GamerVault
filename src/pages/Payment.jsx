@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { CreditCard, Check, ArrowLeft } from "lucide-react"
 import { toast } from "react-hot-toast"
 
-function Payment({ reference, isActive, cartItems = [], totalAmount = 0, onBack, onPaymentComplete }) {
+function Payment({ reference, cartItems = [], totalAmount = 0, onBack, onPaymentComplete }) {
   const [paymentMethod, setPaymentMethod] = useState("credit-card")
   const [formData, setFormData] = useState({
     cardNumber: "",

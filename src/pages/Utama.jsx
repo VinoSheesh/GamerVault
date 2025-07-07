@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { motion } from "framer-motion"
 import { Toaster } from "react-hot-toast"
 import SideMenu from "../components/SideMenu"
 import Header from "../pages/Header"
